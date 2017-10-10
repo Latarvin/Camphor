@@ -10,25 +10,45 @@
  *     }
  * }
  */
-
-
+  
+  
 class Solution {
     /**
-     * @param root: The root of binary tree.
-     * @return: Level order a list of lists of integer
+     * @param root : The root of binary tree.
+     * @return : buttom-up level order a list of lists of integer
      */
 public:
     vector<vector<int>> levelOrder(TreeNode *root) {
         // write your code here
-        vector<vector<int>> result;
-        if (!root)
-          return result;
-
-        vector<int> tmp;
-        tmp.push_back(root->val);
-        result.push_back(tmp);
-        if (!root->left && !root->right)
-          return result;
-        else
+        vector<vector<int>> vec;
+        if(!root){
+            return vec;
+        }
+         
+        queue<TreeNode*> que;
+        que.push(root);
+         
+        while(!que.empty()){
+             
+            int count=que.size();
+            vector<int> vec_temp;
+             
+            while(count--){
+                TreeNode* temp=que.front();
+                que.pop();
+                vec_temp.push_back(temp->val);
+                 
+                if(temp->left){
+                    que.push(temp->left);
+                }
+                 
+                if(temp->right){
+                    que.push(temp->right);
+                }
+            }
+            vec.push_back(vec_temp);
+        }
+        // reverse(vec.begin(),vec.end());
+        return vec;
     }
 };
