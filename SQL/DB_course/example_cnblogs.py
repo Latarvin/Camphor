@@ -257,9 +257,7 @@ def init():
     '''初始化方法'''
     # 数据库文件绝句路径
     global DB_FILE_PATH
-    homedir = os.getcwd()
-    DB_FILE_PATH = sqlite3.connect('{dir}\\test.db'.format(dir=homedir))
-    # DB_FILE_PATH = 'c:\\test\\hongten.db'
+    DB_FILE_PATH = 'c:\\test\\hongten.db'
     # 数据库表名称
     global TABLE_NAME
     TABLE_NAME = 'student'

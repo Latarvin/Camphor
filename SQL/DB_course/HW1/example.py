@@ -7,7 +7,7 @@ conn.commit()
 conn.close()
 
 # create a table
-cur.execute('DROP TABLE IF EXISTS students:')
+cur.execute('DROP TABLE IF EXISTS students;')
 cur.execute('CREATE TABLE students( \
              sid int PRIMARY KEY, \
              name char[10] NOT NULL, \
@@ -27,7 +27,7 @@ tmp = [ (2, 'martin', 'cs', 20),
         ]
 
 cur.executemany('INSERT INFO students, \
-                 VALUES({1}, {2}, {3}, {4})'.format(tmp))
+                 VALUES({}, {}, {}, {})'.format(tmp))
 conn.commit()
 
 # adjust
